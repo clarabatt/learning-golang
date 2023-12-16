@@ -1,5 +1,7 @@
 package task
 
+import "fmt"
+
 type TaskStatus int
 type Priority int
 
@@ -34,4 +36,8 @@ func NewTask(record []string) (*Task, error) {
 		Recurrent:   false,
 		Priority:    High,
 	}, nil
+}
+
+func (t *Task) PrintTask() {
+	fmt.Printf("[%d] %s - %s \n", t.ID, t.Name, t.DueDate)
 }

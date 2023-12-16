@@ -7,7 +7,6 @@ import (
 	"os"
 	"strings"
 	"task-manager/packages/task"
-	// "time"
 )
 
 const tasksFiles = "files/tasks.csv"
@@ -15,6 +14,10 @@ const tasksFiles = "files/tasks.csv"
 func main() {
 	tasksArray := []task.Task{}
 	readTasksFromFile(tasksFiles, &tasksArray)
+
+	for _, task := range tasksArray {
+		task.PrintTask()
+	}
 }
 
 func readTasksFromFile(filename string, arr *[]task.Task) {
