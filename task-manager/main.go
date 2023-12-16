@@ -17,20 +17,18 @@ const (
 type Task struct {
 	Name        string
 	DueDate     string
-	status      TaskStatus
-	description string
-	recurrent   bool
+	Status      TaskStatus
+	Description string
+	Recurrent   bool
 }
 
-const tasks_files = "tasks.csv"
+const tasksFiles = "tasks.csv"
 
 func main() {
-
-	readingTasks(tasks_files)
-
+	readTasksFromFile(tasksFiles)
 }
 
-func readingTasks(filename string) {
+func readTasksFromFile(filename string) {
 	content, err := os.ReadFile(filename)
 	if err != nil {
 		panic(err)
