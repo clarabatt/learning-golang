@@ -7,6 +7,13 @@ import (
 )
 
 type TaskStatus int
+type Priority int
+
+const (
+	Low Priority = iota
+	Medium
+	High
+)
 
 const (
 	Todo TaskStatus = iota
@@ -20,6 +27,7 @@ type Task struct {
 	Status      TaskStatus
 	Description string
 	Recurrent   bool
+	Priority    Priority
 }
 
 const tasksFiles = "tasks.csv"
