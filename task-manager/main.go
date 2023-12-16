@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
+	"io"
 	"os"
 	"strings"
 	"task-manager/packages/task"
@@ -33,9 +34,12 @@ func readTasksFromFile(filename string, arr *[]task.Task) {
 
 	for {
 		line, err := r.Read()
-		if err != nil {
+		if err == io.EOF {
+			break
+		} else if err != nil {
 			panic(err)
 		}
+
 		newTask, err := task.NewTask(line)
 		if err != nil {
 			panic(err)
