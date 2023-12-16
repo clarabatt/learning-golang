@@ -9,7 +9,7 @@ import (
 	// "time"
 )
 
-const tasksFiles = "tasks.csv"
+const tasksFiles = "files/tasks.csv"
 
 func main() {
 	tasksArray := []task.Task{}
